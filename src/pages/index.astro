@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/tool-shell.css';
+import '../styles/bertrand.css';
+const methods = [
+  {id:'endpoints',name:'Random endpoints',text:'Choose two points independently and uniformly on the circumference, then join them.',fraction:'⅓'},
+  {id:'radius',name:'Random radius',text:'Choose a radius at an angle uniform from 0° to 360°, then a point uniformly along that radius. Draw the chord through the point, perpendicular to the radius.',fraction:'½'},
+  {id:'midpoint',name:'Random midpoint',text:'Choose a point uniformly over the area of the disc and use it as the chord’s midpoint.',fraction:'¼'},
+];
+---
+<BaseLayout title="Bertrand’s Paradox" description="Explore Bertrand’s paradox through three ways to choose a random chord. Compare exact probabilities, simulated chords and their midpoint distributions.">
+  <div class="bertrand-page tool-page" id="bertrand">
+    <nav class="tool-navigation" aria-label="Interactive tools"><a href="https://www.davidpeterwallisfreeborn.com/fun/">← Back to Interactive Tools</a></nav>
+    <header class="bertrand-intro">
+      <h1>Bertrand’s paradox</h1>
+      <p>How likely is a random chord to be longer than the side of an inscribed equilateral triangle?</p>
+
+    </header>
+    <section aria-label="Three random chord experiments" class="experiment">
+      <div class="experiment-controls">
+        <div class="button-group"><button type="button" id="run" class="primary">Draw chords</button><button type="button" id="step">Step</button><button type="button" id="batch">+1,000</button><button type="button" id="reset">Reset</button></div>
+        <label class="view-control" for="view">View <select id="view"><option value="chords">Chords</option><option value="midpoints">Midpoints</option><option value="construction">Show construction</option><option value="lengths">Colour by length</option></select></label>
+      </div>
+      <div class="diagram-key" aria-label="Diagram legend" hidden>
+        <span><i class="key-long"></i>Longer than the threshold</span>
+        <span><i class="key-short"></i>Shorter or equal</span>
+
+      </div>
+      <div class="methods">
+        {methods.map(m=><section class="method" data-method={m.id} aria-labelledby={`${m.id}-title`}>
+          <h2 id={`${m.id}-title`}>{m.name}</h2>
+          <div class="circle-field"><canvas class="chord-canvas" aria-hidden="true"></canvas></div>
+          <p class="method-description">{m.text}</p>
+          <dl class="probability">
+            <div><dt>Exact probability</dt><dd class="exact-value">{m.fraction}</dd></div>
+            <div><dt>Sample</dt><dd class="sample-value">—</dd></div>
+          </dl>
+          <div class="estimate-line" role="img" aria-label="Observed proportion and 95% Wilson interval compared with the exact probability"><span class="estimate-fill"></span><span class="interval"></span><span class="exact-mark"></span></div>
+        </section>)}
+      </div>
+
+      <p class="view-caption" id="view-caption">The dashed circle has radius R/2. A chord is longer than √3 R exactly when its midpoint lies inside it.</p>
+      <p class="sr-only" id="announcement" aria-live="polite" aria-atomic="true"></p>
+      <noscript><p>Enable JavaScript to sample chords. The exact probabilities above and the derivations below remain available.</p></noscript>
+    </section>
+    <details class="threshold-disclosure" id="explore">
+      <summary>Threshold and distributions</summary>
+      <div class="threshold-controls"><label for="threshold">Chord-length threshold <output id="threshold-value" for="threshold">√3 R</output></label><input id="threshold" type="range" min="0" max="2" step="0.001" value="1.732" aria-valuetext="Square root of three times the radius"/><button type="button" id="classic">Triangle threshold</button></div>
+
+      <div class="distributions">{methods.map(m=><figure><figcaption>{m.name}</figcaption><svg class="histogram" data-method={m.id} role="img" aria-label={`${m.name}: distribution of midpoint distance from the centre`}></svg></figure>)}</div>
+      <p class="distribution-key"><span><i class="key-hist"></i>Sample frequency</span><span><i class="key-theory"></i>Exact bin probability</span><span>Distance from centre / R · common scales</span></p>
+    </details>
+    <details class="tool-methodology">
+      <summary>Model and methodology</summary>
+      <h3>Three probability measures</h3>
+      <p>“Choose a chord at random” leaves the sampling procedure unspecified. All three procedures are rotationally symmetric, yet assign different probabilities to the chords. A physical experiment or further assumptions may select a measure; rotational symmetry alone does not.</p>
+      <h3>The geometry</h3>
+      <p>A chord with midpoint distance d has length L = 2√(R² − d²). The triangle has side √3 R, so L &gt; √3 R exactly when d &lt; R/2. All chords are solid. Chords and Midpoints use identical marks for both length classes; Colour by length uses teal for longer chords and ochre for shorter or equal chords. The sample percentage beneath each diagram gives the proportion of longer chords. The newest chord is emphasised; M labels its midpoint in the construction view.</p>
+      <p>Uniform midpoint density and uniform chord coverage differ. The random-midpoint method distributes points uniformly over area; the random-radius method gives uniform chord coverage on average. Overlapping translucent strokes darken and eventually saturate, so the drawing is not a calibrated density map.</p>
+      <h3>Sampling and exact answers</h3>
+      <p>Random endpoints uses two independent angles uniform on [0, 2π). With one endpoint fixed by rotational symmetry, the other must fall on one third of the circumference: probability 1/3.</p>
+      <p>Random radius uses an angle uniform on [0, 2π) and an independent distance d uniform on [0, R]. Half the distances satisfy d &lt; R/2: probability 1/2.</p>
+      <p>Random midpoint uses a uniform angle and d = R√U, with U uniform on [0, 1). The square root makes the distribution uniform over area. The inner disc occupies one quarter of that area: probability 1/4. A midpoint exactly at the centre uses the sampled orientation.</p>
+      <p>For threshold tR, let q = √(1 − t²/4), where 0 ≤ t ≤ 2. The exact probabilities are 2 arcsin(q)/π, q, and q², respectively. Changing the threshold reclassifies the existing sample.</p>
+      <h3>Finite samples and display limits</h3>
+      <p>Each experiment starts empty and uses a separate, reproducible pseudorandom stream. Draw chords adds 180 samples per second while the page is visible; Step adds one per method. Reset clears the samples and restores the initial view and triangle threshold. Reduced motion groups updates once per second.</p>
+      <p>The chord and midpoint views retain every sample, up to 100,000 per method. The probability bar spans 0–100%: fill shows the sample proportion, the vertical mark the exact probability, and the whisker a 95% Wilson interval for sampling uncertainty. No sample estimate or interval is shown before the first draw.</p>
+      <p>Histograms use 16 equal distance bins, with exact bin probabilities integrated to handle the endpoint density’s divergence at the rim. Their shared vertical scale measures the fraction of samples per bin.</p>
+      <h3>Reference</h3>
+      <p>Charles M. Grinstead and J. Laurie Snell, <a href="https://www.math.dartmouth.edu/~prob/prob/NEW/amsbookwithlinks.mac.pdf">Introduction to Probability</a>, §2.1, Example 2.6, pp. 47–50.</p>
+    </details>
+  </div>
+</BaseLayout>
+<script>import '../scripts/bertrand';</script>

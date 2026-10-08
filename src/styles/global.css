@@ -1,0 +1,332 @@
+@import './eb-garamond.css';
+
+/* Global Styles for davidpeterwallisfreeborn.com
+   Designed to match the existing Squarespace site appearance */
+
+/* Measured against the site's prose at desktop and mobile widths. Georgia
+   at 105% caused extra lines; 87.3% preserves paragraph heights during swap.
+   Metric overrides match Garamond's 1.007 em ascent and .298 em descent. */
+@font-face {
+  font-family: "EB Garamond Fallback";
+  src: local("Georgia");
+  size-adjust: 87.3%;
+  ascent-override: 115.35%;
+  descent-override: 34.14%;
+  line-gap-override: 0%;
+}
+
+/* CSS Custom Properties */
+:root {
+  /* Colors - matching Squarespace defaults */
+  --color-text: #000000;
+  --color-text-secondary: #333333;
+  --color-background: #ffffff;
+  --color-link: #000000;
+  --color-link-hover: #555555;
+  --color-border: #e0e0e0;
+
+  /* Typography - EB Garamond matches Adobe Garamond Pro from original Squarespace site */
+  --font-body: "EB Garamond", "EB Garamond Fallback", Georgia, "Times New Roman", serif;
+  --font-heading: "EB Garamond", "EB Garamond Fallback", Georgia, "Times New Roman", serif;
+
+  /* Layout */
+  --max-width: 1600px;
+  --content-width: 1200px;
+  --reading-width: 56rem;
+  --page-title-size: 2rem;
+  --prose-size: 1.09rem;
+  --prose-leading: 1.8;
+  --page-padding: min(12vw, 120px);
+  --page-padding-mobile: 6vw;
+  --header-padding: 3vw;
+  --header-padding-mobile: 6vw;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-xxl: 4rem;
+}
+
+/* Reset and Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: var(--page-title-size);
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: var(--space-xl);
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: var(--space-lg);
+}
+
+h4, h5, h6 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: var(--space-md);
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+li::marker {
+  color: var(--color-text);
+}
+
+/* Strong and Emphasis */
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Keep the keyboard shortcut out of the visual layout until focus is
+   keyboard-visible. Clipping also prevents offscreen painting at zoom. */
+.skip-link {
+  position: fixed;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  z-index: 100;
+  text-decoration: underline;
+}
+
+.skip-link:focus-visible {
+  width: auto;
+  height: auto;
+  max-width: calc(100% - 2 * var(--space-xs));
+  padding: var(--space-xs) var(--space-sm);
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  border: 1px solid var(--color-border);
+}
+
+/* A skip-link destination, not an extra Tab stop or interactive control. */
+#main-content:focus {
+  outline: none;
+}
+
+/* Main Content Area */
+main {
+  padding: var(--space-xl) var(--page-padding);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* The academic pages share the profile's reading scale. Captions and
+   specialist figures retain their own local sizing and reading measures. */
+.site-page:not(.profile-home) #main-content {
+  font-size: var(--prose-size);
+  font-weight: 300;
+  line-height: var(--prose-leading);
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --page-padding: var(--page-padding-mobile);
+  }
+}
+
+@media (min-width: 901px) {
+  :root {
+    --shell-space: clamp(1rem, calc(6vh - 1.75rem), 2.5rem);
+  }
+
+  .site-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-page #main-content {
+    flex: 1 0 auto;
+    width: 100%;
+    padding-block: var(--shell-space);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --prose-size: 1rem;
+  }
+
+  main {
+    padding: var(--space-lg) var(--page-padding-mobile);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Content Width Container */
+.content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* Section Spacing */
+section {
+  margin-bottom: var(--space-xxl);
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+/* Two Column Layout */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Profile Image */
+.profile-image {
+  width: 100%;
+  max-width: 300px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Publication/Item Lists */
+.item-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.item-list li {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.item-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* External Link Indicator */
+a[target="_blank"]::after {
+  content: "";
+}
+
+/* Utility Classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Iframe Embed (for cellularautomata, etc.) */
+.iframe-embed {
+  width: 100%;
+  height: 90vh;
+}
+
+.iframe-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  display: block;
+}

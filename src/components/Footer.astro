@@ -1,0 +1,102 @@
+---
+const socialLinks = [
+  { href: "https://orcid.org/0000-0002-2117-8145", label: "ORCID", icon: "orcid" },
+  { href: "https://scholar.google.com/citations?hl=en&sortby=pubdate&user=fZ5O9VsAAAAJ", label: "Google Scholar", icon: "scholar" },
+  { href: "https://www.researchgate.net/profile/David-Freeborn", label: "ResearchGate", icon: "researchgate" },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="social-links">
+      {socialLinks.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={link.label}
+          class={`social-link social-link--${link.icon}`}
+        >
+          <span class="visually-hidden">{link.label}</span>
+        </a>
+      ))}
+    </div>
+    <p class="copyright">&copy; David Freeborn</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: var(--space-xl) var(--page-padding);
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .social-link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .social-link:hover {
+    opacity: 1;
+  }
+
+  .social-link--orcid {
+    background-image: url('../assets/images/footer-orcid-72.png');
+  }
+
+  .social-link--scholar {
+    background-image: url('../assets/images/footer-scholar-72.png');
+  }
+
+  .social-link--researchgate {
+    background-image: url('../assets/images/footer-researchgate-72.png');
+  }
+
+  .copyright {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  @media (min-width: 901px) {
+    .site-footer {
+      padding-block: var(--shell-space);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .social-links {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: var(--space-lg) var(--page-padding-mobile);
+    }
+  }
+</style>

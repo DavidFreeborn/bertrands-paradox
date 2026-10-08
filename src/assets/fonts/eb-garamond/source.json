@@ -1,0 +1,92 @@
+{
+  "family": "EB Garamond",
+  "retrieved": "2026-09-13",
+  "stylesheet": "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap",
+  "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/OFL.txt",
+  "files": [
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDY1ZzPJ.woff2",
+      "file": "eb-garamond-v33-italic-cyrillic-ext.woff2",
+      "bytes": 35424,
+      "sha256": "5a7499fae103446ed709a2aaab7dbabb13ad1841a5258c0dd5b56750067ac2f1"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweD81ZzPJ.woff2",
+      "file": "eb-garamond-v33-italic-cyrillic.woff2",
+      "bytes": 26520,
+      "sha256": "640020b01622b1c76c8f4137a3f39608fa22d718e17cb3e1d972e69c755ff6e0"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDc1ZzPJ.woff2",
+      "file": "eb-garamond-v33-italic-greek-ext.woff2",
+      "bytes": 11956,
+      "sha256": "4caf65dfd9a97861e20565bcec00273c1e157af7eb4f6af7bd61f3462feb7e09"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDg1ZzPJ.woff2",
+      "file": "eb-garamond-v33-italic-greek.woff2",
+      "bytes": 19588,
+      "sha256": "288deb73f6a27a306138997d310e4efbfba9bb623eca0829be0e4475ff164b71"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDQ1ZzPJ.woff2",
+      "file": "eb-garamond-v33-italic-vietnamese.woff2",
+      "bytes": 11016,
+      "sha256": "b086ea6d8bc9bc670c11015f13df0776c430b6c26a78a73b4dce9ddb423623c1"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDU1ZzPJ.woff2",
+      "file": "eb-garamond-v33-italic-latin-ext.woff2",
+      "bytes": 88576,
+      "sha256": "fa866520f8b7fb646ebc730fd0d3cbf8945db74d92f25fdd6fee486808652fdf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDs1Zw.woff2",
+      "file": "eb-garamond-v33-italic-latin.woff2",
+      "bytes": 47940,
+      "sha256": "c664773f7e1d42d36326aa457becf7674236168c74cf7d74e87e5778ef7640f9"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR4SDktYw.woff2",
+      "file": "eb-garamond-v33-normal-cyrillic-ext.woff2",
+      "bytes": 33948,
+      "sha256": "7738b6004721f3d23e4e284b1055120f0ac1fd96fd01e5786b58b3042998876c"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GRxSDktYw.woff2",
+      "file": "eb-garamond-v33-normal-cyrillic.woff2",
+      "bytes": 26024,
+      "sha256": "197ed98b8524dd8664aefb5d5ef4ca515d2df1ef90d3f771e19cb0893b95cc2b"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR5SDktYw.woff2",
+      "file": "eb-garamond-v33-normal-greek-ext.woff2",
+      "bytes": 11484,
+      "sha256": "3cd432d0dc2b756e69eea4325fd40f3515a31753445238f7fb5d349588192511"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR2SDktYw.woff2",
+      "file": "eb-garamond-v33-normal-greek.woff2",
+      "bytes": 19868,
+      "sha256": "f6475b2f7530f248b5d3a0237d97dc2e1987665153dcb888fbeea3b0f9019b56"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR6SDktYw.woff2",
+      "file": "eb-garamond-v33-normal-vietnamese.woff2",
+      "bytes": 10952,
+      "sha256": "af68d0b256558e0fecffabca6696d47c78902249db6bc7e1ac9964980a610a77"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR7SDktYw.woff2",
+      "file": "eb-garamond-v33-normal-latin-ext.woff2",
+      "bytes": 113928,
+      "sha256": "f8d3fa06e20989a938972165406a1b731cdc7fe33ff2b0b6798c75aa63709901"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR1SDk.woff2",
+      "file": "eb-garamond-v33-normal-latin.woff2",
+      "bytes": 44336,
+      "sha256": "88603384163d301aebd5bd769832a8bfe3c9004ec24178417b9817f0ad32c63b"
+    }
+  ]
+}

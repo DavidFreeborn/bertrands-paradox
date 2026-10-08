@@ -1,0 +1,30 @@
+---
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import font from '../assets/fonts/eb-garamond/eb-garamond-v33-normal-latin.woff2?url';
+interface Props { title: string; description: string; }
+const {title,description}=Astro.props;
+const canonical='https://www.davidpeterwallisfreeborn.com/fun/bertrands-paradox/';
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | David Freeborn</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={import.meta.env.BASE_URL + '/favicon.ico'} />
+    <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body class="site-page standalone-tool">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <Footer />
+  </body>
+</html>
+<style is:global>body.standalone-tool #main-content { padding-top:0; }</style>

@@ -1,0 +1,54 @@
+.bertrand-page { --long:#236e70; --short:#a36a38; --rule:#d8dcdb; max-width:1200px; margin:0 auto; }
+.bertrand-page .tool-navigation { padding-inline:0; }
+.bertrand-page section { margin-bottom:0; }
+.bertrand-intro { margin:26px 0 28px; }
+.bertrand-intro h1 { margin:0 0 10px; }
+.bertrand-intro p { font-size:21px; line-height:1.4; margin:0; }
+.diagram-key,.distribution-key { display:flex; align-items:center; flex-wrap:wrap; gap:8px 22px; font:13px/1.5 var(--tool-sans); color:#505653; }
+.diagram-key { padding:10px 0 12px; border-bottom:1px solid var(--rule); }
+.diagram-key[hidden] { display:none; }
+.diagram-key span,.distribution-key span { display:inline-flex; gap:8px; align-items:center; }
+.diagram-key i,.distribution-key i { display:inline-block; width:22px; height:0; }
+.key-long { border-top:2px solid var(--long); }
+.key-short { border-top:2px solid var(--short); }
+.key-hist { border-top:7px solid #b6cecd; }
+.key-theory { border-top:2px solid #343e3d; }
+.methods { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
+.method { display:flex; flex-direction:column; min-width:0; padding:22px 0 16px; }
+.method h2 { font-size:24px; font-weight:400; margin:0 0 8px; }
+.circle-field { aspect-ratio:1; width:100%; flex-shrink:0; }
+.chord-canvas { display:block; width:100%; height:100%; user-select:none; }
+.method-description { flex:1; font:18px/1.4 var(--tool-serif); margin:8px 0 12px; }
+.probability { display:grid; gap:4px; margin:0; }
+.probability>div { display:grid; grid-template-columns:1fr auto; align-items:baseline; gap:16px; }
+.probability dt { font:14px/1.6 var(--tool-sans); color:#505653; }
+.probability dd { margin:0; font:400 25px/1.2 var(--tool-serif); font-variant-numeric:tabular-nums; }
+.estimate-line { position:relative; height:4px; background:#edf0ef; margin:14px 0 10px; }
+.estimate-fill { position:absolute; height:4px; background:var(--long); }
+.interval { position:absolute; top:1px; height:2px; background:#253332; }
+.interval::before,.interval::after { content:''; position:absolute; top:-2px; height:6px; border-left:1px solid #253332; }
+.interval::after { right:0; }
+.exact-mark { position:absolute; top:-5px; height:14px; width:1px; background:#1f2b29; }
+.experiment-controls { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; border-top:1px solid var(--rule); padding:18px 0 12px; }
+.button-group { display:flex; flex-wrap:wrap; gap:8px; }
+.bertrand-page button,.bertrand-page select { border:1px solid #b9c0bc; background:#fff; color:#27312e; padding:7px 12px; font:14px/1.4 var(--tool-sans); cursor:pointer; }
+.bertrand-page button:hover { background:#f1f3f2; }
+.bertrand-page button.primary { background:#273d38; color:#fff; border-color:#273d38; min-width:114px; }
+.bertrand-page button:disabled { opacity:.5; cursor:default; }
+.view-control { display:flex; align-items:center; gap:9px; }
+.view-caption { font:17px/1.5 var(--tool-serif); color:#505653; margin:8px 0 0; }
+.threshold-disclosure { margin-top:24px; border-top:1px solid var(--rule); padding:14px 0 0; }
+.threshold-disclosure>summary { font:18px/1.5 var(--tool-serif)!important; cursor:pointer; }
+.threshold-controls { display:grid; grid-template-columns:1fr minmax(140px,1.3fr) auto; gap:20px; align-items:center; padding:18px 0; }
+.threshold-controls label { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.threshold-controls output { white-space:nowrap; font-variant-numeric:tabular-nums; }
+.threshold-controls input { width:100%; accent-color:var(--long); min-height:36px; }
+.distributions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
+.distributions figure { min-width:0; margin:0; }
+.distributions figcaption { font-size:19px; }
+.histogram { display:block; width:100%; height:160px; overflow:visible; }
+.distribution-key { margin:16px 0 0; }
+.bertrand-page .tool-methodology { margin-top:24px; }
+.bertrand-page .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; user-select:none; }
+@media(max-width:1050px) and (min-width:701px) { .methods,.distributions { gap:20px; } .method h2 { font-size:21px; } .method-description { min-height:100px; } .threshold-controls { grid-template-columns:1fr 1fr; } .threshold-controls button { justify-self:start; } }
+@media(max-width:700px) { .bertrand-intro p { font-size:20px; } .methods,.distributions { grid-template-columns:1fr; gap:0; } .method { padding:22px 0; border-bottom:1px solid var(--rule); } .method:last-child { border:0; } .circle-field { max-width:390px; margin:0 auto; } .method-description { min-height:0; } .probability { margin-top:16px; } .sample-caption { flex-basis:100%; margin-left:0; } .experiment-controls { gap:18px; } .view-control { width:100%; justify-content:space-between; } .threshold-controls { grid-template-columns:1fr; gap:8px; } .threshold-controls button { justify-self:start; } .distributions { gap:22px; } .diagram-key,.distribution-key { font-size:13px; } }
